@@ -1,0 +1,70 @@
+<div class="container">
+
+
+
+  <div class="formulario">
+    <h2>Formulario de registro</h2>
+    <form>
+
+      <label for="frutas">Selecciona un consultorio:</label>
+      <select id="frutas" name="frutas" [(ngModel)]="consultorio">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="frutas">Selecciona una doctor:</label>
+      <select id="frutas" name="frutas" [(ngModel)]="doctor">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <div class="mb-3">
+        <label [(ngModel)]="horario" for="exampleInputPassword1" class="form-label">Horario |aammddhhmm|</label>
+        <input type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+
+      <div class="mb-3">
+        <label [(ngModel)]="nombre_paciente" for="exampleInputPassword1" class="form-label">Nombre paciente</label>
+        <input type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (onClick)="enviar()">Submit</button>
+    </form>
+  </div>
+
+  <div class="tabla">
+    <h2>Lista de citas</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">No. de cita</th>
+          <th scope="col">Consultorio</th>
+          <th scope="col">Doctor</th>
+          <th scope="col">Horario</th>
+          <th scope="col">Paciente</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <th scope="row">{{cita.id}}</th>
+          <td>{{cita.consultorio.piso}}</td>
+          <td>{{cita.doctor.nombre}} {{cita.doctor.apellido_paterno}}</td>
+          <td>{{cita.horario_consulta}}</td>
+          <td>{{cita.nombre_paciente}}</td>
+          <td style="display: flex; justify-content: space-between;">
+            <button class="btn-primary">Actualizar</button>
+            <button class="btn-danger">Eliminar</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
